@@ -1,0 +1,15 @@
+import collections 
+
+for i in range(int(input())):
+    N = int(input())
+    prices = list(map(int,input().split()))
+    de = collections.deque([800]*5)
+    count = 0
+    for j in range(N):
+        m = all(x > prices[j] for x in de)
+        if m == True:
+            count+=1
+        de.popleft()
+        de.append(prices[j])
+    print(count)
+            
